@@ -30,7 +30,7 @@ public class Funcionario implements Serializable{
 
 	private static final long serialVersionUID = -6782226648840269296L;
 
-	private long id;
+	private Long id;
 	private String nome;
 	private String email;
 	private String senha;
@@ -51,11 +51,12 @@ public class Funcionario implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public long getId() {
+	@Column(name = "id", nullable = false)
+	public Long getId() {
 		return id;
 	}
 	
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
@@ -95,7 +96,7 @@ public class Funcionario implements Serializable{
 		this.cpf = cpf;
 	}
 	
-	@Column(name = "valorHora", nullable = false)
+	@Column(name = "valorHora", nullable = true)
 	public BigDecimal getValorHora() {
 		return valorHora;
 	}
@@ -109,7 +110,7 @@ public class Funcionario implements Serializable{
 		this.valorHora = valorHora;
 	}
 	
-	@Column(name = "qtdHorasTrabalhoDia", nullable = false)
+	@Column(name = "qtdHorasTrabalhoDia", nullable = true)
 	public Float getQtdHorasTrabalhoDia() {
 		return qtdHorasTrabalhoDia;
 	}
@@ -123,7 +124,7 @@ public class Funcionario implements Serializable{
 		this.qtdHorasTrabalhoDia = qtdHorasTrabalhoDia;
 	}
 	
-	@Column(name = "qtdHorasAlmoco", nullable = false)
+	@Column(name = "qtdHorasAlmoco", nullable = true)
 	public Float getQtdHorasAlmoco() {
 		return qtdHorasAlmoco;
 	}

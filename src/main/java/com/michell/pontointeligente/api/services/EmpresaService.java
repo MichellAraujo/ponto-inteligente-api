@@ -16,6 +16,7 @@ public interface EmpresaService {
 	
 	/**
 	 *Cadastra uma nova empresa na base de dados 
+	 *
 	 *@param empresa
 	 *@return Empresa
 	 */

@@ -36,12 +36,12 @@ public class Lancamento implements Serializable{
 	private Date dataAtualizacao;
 	private TipoEnum tipo;
 	private Funcionario funcionario;
-	
-	public Lancamento() {}
+
+	public Lancamento() {
+	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", nullable = false)
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
@@ -68,7 +68,7 @@ public class Lancamento implements Serializable{
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
+	
 	@Column(name = "localizacao", nullable = true)
 	public String getLocalizacao() {
 		return localizacao;
@@ -78,7 +78,7 @@ public class Lancamento implements Serializable{
 		this.localizacao = localizacao;
 	}
 
-	@Column(name = "dataCriacao", nullable = false)
+	@Column(name = "data_criacao", nullable = false)
 	public Date getDataCriacao() {
 		return dataCriacao;
 	}
@@ -87,7 +87,7 @@ public class Lancamento implements Serializable{
 		this.dataCriacao = dataCriacao;
 	}
 
-	@Column(name = "dataAtualizacao", nullable = false)
+	@Column(name = "data_atualizacao", nullable = false)
 	public Date getDataAtualizacao() {
 		return dataAtualizacao;
 	}
@@ -116,16 +116,16 @@ public class Lancamento implements Serializable{
 	}
 	
 	@PreUpdate
-	public void PreUpdate() {
-		this.dataAtualizacao = new Date();
-	}
-	
-	@PrePersist
-	public void PrePersist() {
-		final Date atual = new Date();
-		this.dataCriacao = atual;
-		this.dataAtualizacao = atual;
-	}
+    public void preUpdate() {
+        dataAtualizacao = new Date();
+    }
+     
+    @PrePersist
+    public void prePersist() {
+        final Date atual = new Date();
+        dataCriacao = atual;
+        dataAtualizacao = atual;
+    }
 
 	@Override
 	public String toString() {
